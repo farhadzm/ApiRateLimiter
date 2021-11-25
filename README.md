@@ -1,6 +1,6 @@
 # ApiRateLimiter
 
-Create a simple rate limiter for Asp.Net Core APIs projects.
+A simple rate limiter for Asp.Net Core APIs projects.
 #
 
 **Usage:**
