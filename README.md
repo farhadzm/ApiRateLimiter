@@ -28,7 +28,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
       "limit": 2,
       "duration": 5
     },
-    "/api/values/{evryThing}": {
+    "/api/values/{everyThing}": {
       "limit": 5,
       "duration": 10
     }
