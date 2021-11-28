@@ -10,7 +10,6 @@ namespace ApiRateLimiter.InMemory
     {
         public static void AddInMemoryRateLimiter(this IServiceCollection services)
         {
-            services.AddMemoryCache();
             services.AddSingleton<IApiRateLimiter, InMemoryRateLimiter>();
         }
     }

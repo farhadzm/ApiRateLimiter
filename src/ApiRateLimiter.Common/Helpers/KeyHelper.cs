@@ -10,5 +10,9 @@ namespace ApiRateLimiter.Common.Helpers
         {
             return $"{route.ToLowerInvariant()}_{ip.ToUpperInvariant()}";
         }
+        public static string GenerateLimitationRouteCacheKey(string route, string ip)
+        {
+            return $"LIMITATION_{route.ToLowerInvariant()}_{ip.ToUpperInvariant()}";
+        }
     }
 }

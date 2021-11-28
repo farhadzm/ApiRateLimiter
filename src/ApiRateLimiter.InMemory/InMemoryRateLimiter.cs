@@ -14,7 +14,7 @@ namespace ApiRateLimiter.InMemory
     public class InMemoryRateLimiter : IApiRateLimiter
     {
         private readonly IMemoryCache _memoryCache;
-        private ApiRateLimiterOption _option;
+        private readonly ApiRateLimiterOption _option;
         public InMemoryRateLimiter(IOptions<ApiRateLimiterOption> options, IMemoryCache memoryCache)
         {
             _option = options.Value;
