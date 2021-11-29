@@ -14,7 +14,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 And adding `UseRateLimiter` middleware.
-```
+```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     app.UseRateLimiter();
