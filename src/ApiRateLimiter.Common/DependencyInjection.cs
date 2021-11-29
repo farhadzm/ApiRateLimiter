@@ -1,23 +1,16 @@
-﻿
-using ApiRateLimiter.Common.Contratcs;
+﻿using ApiRateLimiter.Common.Contratcs;
+using ApiRateLimiter.Common.Helpers;
 using ApiRateLimiter.Common.Implementations;
 using ApiRateLimiter.Common.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ApiRateLimiter.Common
 {
     public static class DependencyInjection
     {
-        public static void RenameKey<TKey, TValue>(this IDictionary<TKey, TValue> dic,
-                                         TKey fromKey, TKey toKey)
-        {
-            TValue value = dic[fromKey];
-            dic.Remove(fromKey);
-            dic[toKey] = value;
-        }
+        
         public static void AddApiRateLimiter(this IServiceCollection services, IConfiguration configuration)
         {
             var limitOption = configuration.GetSection(nameof(ApiRateLimiterOption)).Get<ApiRateLimiterOption>();
@@ -36,6 +29,8 @@ namespace ApiRateLimiter.Common
             });
             services.AddSingleton<ILimitationChecker, LimitationChecker>();
             services.AddSingleton<IRegexBuilder, RegexBuilder>();
+            services.AddSingleton<ICache, InMemoryCache>();
+            services.AddMemoryCache();
         }
     }
 }
